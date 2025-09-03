@@ -1,0 +1,4 @@
+# Ignoră medii virtuale Python
+venv/
+env/
+.venv/
