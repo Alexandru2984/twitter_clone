@@ -95,7 +95,8 @@ func Login(c *gin.Context) {
 	// Generate JWT token
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
-		jwtSecret = "your-secret-key"
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Server configuration error"})
+		return
 	}
 
 	claims := models.Claims{
