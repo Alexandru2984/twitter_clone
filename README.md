@@ -91,15 +91,17 @@ cd backend
 # Install dependencies
 go mod download
 
-# Set environment variables (optional)
+# Set environment variables (REQUIRED for production)
 export MONGODB_URI="mongodb://localhost:27017"
 export DB_NAME="twitter_clone"
-export JWT_SECRET="your-secret-key"
+export JWT_SECRET="your-secure-random-secret-key"  # MUST be set for security
 export PORT="8080"
 
 # Run the server
 go run main.go
 ```
+
+**⚠️ Important**: The `JWT_SECRET` environment variable MUST be set in production. The application will not start without it for security reasons.
 
 The backend API will be available at http://localhost:8080
 
